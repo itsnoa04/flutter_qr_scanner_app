@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner_app/pages/qr_create_page.dart';
-import 'package:qr_scanner_app/pages/qr_scanner_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,14 +35,6 @@ class _ScannerGeneratorHandlerState extends State<ScannerGeneratorHandler> {
 
   @override
   Widget build(BuildContext context) {
-    return recevedMessage == ""
-        ? QRcodeGen(
-            openScanner: () {
-              setState(() {});
-            },
-          )
-        : QRscanner(
-            recevedMessages: recevedMessage,
-          );
+    return const QRcodeGen();
   }
 }

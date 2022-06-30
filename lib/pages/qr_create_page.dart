@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_scanner_app/pages/qr_scanner_page.dart';
 
 class QRcodeGen extends StatefulWidget {
-  final Function openScanner;
-
   const QRcodeGen({
     Key? key,
-    required this.openScanner,
   }) : super(key: key);
 
   @override
@@ -23,7 +21,7 @@ class _QRcodeGenState extends State<QRcodeGen> {
         foregroundColor: Colors.black,
         elevation: 0,
         title: const Text(
-          "QR SCANNER",
+          "QR GENERATOR",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
@@ -78,7 +76,12 @@ class _QRcodeGenState extends State<QRcodeGen> {
                   ),
                 ),
                 onPressed: () {
-                  widget.openScanner();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const QRscanner(),
+                    ),
+                  );
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(20),
